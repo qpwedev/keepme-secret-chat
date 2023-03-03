@@ -21,7 +21,7 @@ def generate_key_by_passphrase(passphrase):
     )
 
     key = base64.urlsafe_b64encode(kdf.derive(passphrase))
-    print(key)
+
     return key
 
 

@@ -16,7 +16,33 @@ To get the `PEER_CHAT_ID` of a channel in Telegram, you can use the `@username_t
 1. Send a message to the `@username_to_id_bot` to get the `PEER_CHAT_ID`.
 2. The bot will send you a message with the `PEER_CHAT_ID` of the channel.
 
-Once you have obtained the `API_ID`, `API_HASH`, and `PEER_CHAT_ID`, you can run the script with `python3 ./src/bot.py` and input them into console.
+Once you have obtained the `API_ID`, `API_HASH`, and `PEER_CHAT_ID`, you can run the script with `python3 ./src/bot.py` and input them into console or use .env file.
+
+## Inputting values directly
+
+To input the values directly when running the script, follow these steps:
+
+1. Open the terminal or command prompt.
+1. Navigate to the root directory of the project.
+1. Run the script with python3 `./src/bot.py`.
+1. When prompted, input the `PEER_CHAT_ID`, `API_ID`, and `API_HASH` values.
+
+## Using a .env file
+
+To use a .env file, follow these steps:
+
+1. Create a file named `.env` in the root directory of the project.
+2. Define the `PEER_CHAT_ID`, `API_ID`, and `API_HASH` values in the file in the following format:
+
+```
+PEER_CHAT_ID=<your_peer_chat_id>
+API_ID=<your_api_id>
+API_HASH=<your_api_hash>
+```
+
+3. Save the file.
+
+When you run the script with `python3 ./src/bot.py`, the values from the `.env` file will be automatically loaded.
 
 ## Encryption
 

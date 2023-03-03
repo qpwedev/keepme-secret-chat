@@ -1,16 +1,23 @@
 import asyncio
+import os
 from pyrogram import Client
 from crypto import calculate_shared_secret, generate_key, validate_public_key, p, g
 from pyrogram import enums
 from pyrogram.types.messages_and_media.message import Message
 from encryption import decrypt_message, encrypt_message, generate_key_by_passphrase
 import aioconsole
+from dotenv import load_dotenv
+load_dotenv()
 
 SHARED_SECRET = None
 
-API_ID = int(input("Enter your API ID: "))
-API_HASH = input("Enter your API HASH: ")
-PEER_CHAT_ID = int(input("Enter your PEER_CHAT_ID: "))
+
+PEER_CHAT_ID = int(os.getenv("PEER_CHAT_ID")) if os.getenv(
+    "PEER_CHAT_ID") else input("Enter your PEER_CHAT_ID: ")
+API_ID = int(os.getenv("API_ID")) if os.getenv(
+    "API_ID") else input("Enter your API ID: ")
+API_HASH = os.getenv("API_HASH") if os.getenv(
+    "API_HASH") else input("Enter your API HASH: ")
 
 
 async def get_last_messages(app: Client, limit: int) -> Message | None:
