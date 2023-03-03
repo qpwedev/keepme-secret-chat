@@ -63,3 +63,5 @@ Both Alice and Bob now have the same shared secret key, which can be used for en
 ## Disclaimer
 
 This project is for educational purposes only. The developers of this project are not responsible for any illegal or unethical use of the software.
+
+> Visual design by [@creatoner](t.me/creatoner)
