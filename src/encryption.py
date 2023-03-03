@@ -3,13 +3,15 @@ from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 from cryptography.hazmat.primitives import hashes
 import base64
 import os
+import pickle
 
 
 def generate_key_by_passphrase(passphrase):
     """
     Generates key from passphrase.
     """
-    salt = os.urandom(16)
+
+    salt = b'deadbeef'
 
     kdf = PBKDF2HMAC(
         algorithm=hashes.SHA256(),
@@ -19,7 +21,7 @@ def generate_key_by_passphrase(passphrase):
     )
 
     key = base64.urlsafe_b64encode(kdf.derive(passphrase))
-
+    print(key)
     return key
 
 
