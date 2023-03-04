@@ -1,7 +1,7 @@
 # KeepMe Secret Chat
 ![KeepMe](./KeepMe.png)
 
-Telegram Secret Chat is a Python project that allows for the creation of a fully protected channel for communication via Telegram chat using Diffie-Hellman key exchange algorithm and SHA-256 encryption.
+KeepMe Secret Chat is a Python project that allows for the creation of a fully protected channel for communication via Telegram chat using Diffie-Hellman key exchange algorithm and SHA-256 encryption.
 
 ## Getting Started
 
