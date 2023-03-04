@@ -12,12 +12,17 @@ load_dotenv()
 SHARED_SECRET = None
 
 
-PEER_CHAT_ID = int(os.getenv("PEER_CHAT_ID")) if os.getenv(
-    "PEER_CHAT_ID") else input("Enter your PEER_CHAT_ID: ")
-API_ID = int(os.getenv("API_ID")) if os.getenv(
-    "API_ID") else input("Enter your API ID: ")
-API_HASH = os.getenv("API_HASH") if os.getenv(
-    "API_HASH") else input("Enter your API HASH: ")
+PEER_CHAT_ID = int(os.getenv("PEER_CHAT_ID")) \
+    if os.getenv("PEER_CHAT_ID") \
+    else input("Enter your PEER_CHAT_ID: ")
+
+API_ID = int(os.getenv("API_ID")) \
+    if os.getenv("API_ID") \
+    else input("Enter your API ID: ")
+
+API_HASH = os.getenv("API_HASH") \
+    if os.getenv("API_HASH") \
+    else input("Enter your API HASH: ")
 
 
 async def get_last_messages(app: Client, limit: int) -> Message | None:
@@ -96,7 +101,7 @@ async def establish_connection(app: Client, a1_private_part_key: int, a1_public_
     global SHARED_SECRET
     last_message = (await get_last_messages(app, 1))[0]
 
-    if not last_message or not last_message.text or not last_message.text.startswith("[N1] Public key:"):
+    if not last_message or not last_message.text or not last_message.text.startswith("[N1] Public key:") and last_message.from_user.id == PEER_CHAT_ID:
         await app.send_message(
             PEER_CHAT_ID,
             f"<b>[N1] Public key</b>:\n\n<code>{a1_public_key}</code>", parse_mode=enums.ParseMode.HTML
